@@ -75,13 +75,15 @@ int main(void) {
     return 0;
 }
 ```
-```#include <iostream>``` #include is a preprocessing directive that tells the preprocessor (when you compile your program) to basically copy and paste the contents of the file ```iostream``` into your program.
+```#include <iostream>``` - #include is a preprocessing directive that tells the preprocessor (when you compile your program) to basically copy and paste the contents of the file ```iostream``` into your program.
 
-```iostream``` is what allows you to use the ```cout``` and ```cin``` stuff to ```in```put and ```out```put data.
+```iostream``` - is what allows you to use the ```cout``` and ```cin``` stuff to ```in```put and ```out```put data.
 
-```iomanip``` lets you do the ```setw``` and ```setprecision``` things.
+```iomanip``` - lets you do the ```setw``` and ```setprecision``` things.
 
-```using namespace std``` In C++, there are things called namespaces that just better organize your code.
+```using namespace std``` - In C++, there are things called namespaces that just better organize your code.
+
+===
 
 Let's say you want to share your program with other people for them to use in their programs.
 
@@ -96,3 +98,44 @@ So now to access your add function, the other guy that wants to use your program
 Finally, since we use cout and cin a lot, you can add a ```using namespace std``` at the top of your program to save time from having to type ```std::cout``` and ```std::cin``` all the time.
 
 The same thing could be done with your add function with something like ```using namespace myThing```. And then you could access your add function with just ```add```, however we'd have that problem of there being two ambiguous add functions.
+
+===
+
+```int main(void) {``` - This is your main that contains everything your program does. For now, just ignore the **int** and **void** parts.
+
+```int x, y;``` - Initializes variables called x and y as ints. They don't have values yet, but since they have been initialized, you can now use them in the program later.
+
+```cout << "Enter two integers";``` - This outputs the text ```Enter two integers```.
+
+```cin >> x >> y;``` - Waits for the user to type something in and press enter. When the user presses enter, it'll store whatever they typed in into the variable **x**. And then it'll wait for the user to type something else and press enter which will in turn store whatever they typed in into the variable **y**.
+
+```cout << "First number in decimal " << x << " in hex " << hex << x << endl;``` - Outputs ```First number in decimal ``` and then the value of the variable **x** followed by ``` in hex ```.
+The ```hex``` part is actually from iomanip and all it does is display your ints in base 16/hexadecimal...
+####Quick lesson
+==
+We count in base 10 which has digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+Base 16/hexadecimal has 16 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+
+So **10** in base 10 is **A** in hex.
+
+**15** in base 10 is **F** in hex.
+
+And **16** in base 10 is **10** in hex.
+
+==
+So continuing from before, the ```hex``` part just means that it'll start displaying integers in base16 instead of base10.
+
+So it outputs your **x** variable in base16 and then ends it with ```endl``` which means "end line" basically which is basically a line break/return/enter key press basically :)
+
+```float a, b;``` - Initializes two floats with no values for later use
+
+```cout << "Enter 2 real numbers";``` - Outputs ```Enter 2 real numbers```
+
+```cin >> a >> b;``` - Accepts the input and stores them in the variables just like the previous ints(```cin >> x >> y;```).
+
+```cout << fixed << setprecision(2);``` - fixed and setprecision are both from ```iomanip``` and just make the number fixed and have 2 decimal points of precision.
+
+```cout << "The sum is " << setw(7) << a + b << endl;``` - Outputs ```The sum is ``` and then sets the width of the next part to 7. It then outputs the sum of variable **a** and **b** with a minimum of 7 columns of space followed by an end line.
+
+```return 0;``` - Just tells the OS that no error occured. Not really important for now...
