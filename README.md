@@ -50,3 +50,19 @@ A **double** is 64 bit like a long and can hold floating points that are too big
 double blah = 98.6;
 ```
 
+###main
+main is the thing that is ran when you execute a program. You place all your program logic into main.
+
+But what exactly do all of the things in main mean?
+
+A basic main example:
+```
+#include <iostream>
+
+int main() {
+    int a = 5;
+    int b = 10;
+    int add = a + b;
+    cout << add << endl;
+}
+```
