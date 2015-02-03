@@ -55,14 +55,44 @@ main is the thing that is ran when you execute a program. You place all your pro
 
 But what exactly do all of the things in main mean?
 
-A basic main example:
+Main example from your handout:
 ```
 #include <iostream>
+#include <iomanip>
+using namespace std;
 
-int main() {
-    int a = 5;
-    int b = 10;
-    int add = a + b;
-    cout << add << endl;
+int main(void) {
+    int x, y;
+    cout << "Enter two integers";
+    cin >> x >> y;
+    cout << "First number in decimal " << x
+        << " in hex " << hex << x << endl;
+    float a, b;
+    cout << "Enter 2 real numbers";
+    cin >> a >> b;
+    cout << fixed << setprecision(2);
+    cout << "The sum is " << setw(7) << a + b << endl;
+    return 0;
 }
 ```
+```#include <iostream>``` #include is a preprocessing directive that tells the preprocessor (when you compile your program) to basically copy and paste the contents of the file ```iostream``` into your program.
+
+```iostream``` is what allows you to use the ```cout``` and ```cin``` stuff to ```in```put and ```out```put data.
+
+```iomanip``` lets you do the ```setw``` and ```setprecision``` things.
+
+```using namespace std``` In C++, there are things called namespaces that just better organize your code.
+
+Let's say you want to share your program with other people for them to use in their programs.
+
+Maybe you both have a **function** called **add** but they both do different things.
+
+If they were to include your program using something like ```#include "prgm.h"```, one of the **add** functions would end up overwriting the other.
+
+To prevent this from happenening, you can encapsulate your add function with something like ```namespace myThing { }```
+
+So now to access your add function, the other guy that wants to use your program would have to do something like ```myThing::add``` instead of plain old ```add```;
+
+Finally, since we use cout and cin a lot, you can add a ```using namespace std``` at the top of your program to save time from having to type ```std::cout``` and ```std::cin``` all the time.
+
+The same thing could be done with your add function with something like ```using namespace myThing```. And then you could access your add function with just ```add```, however we'd have that problem of there being two ambiguous add functions.
